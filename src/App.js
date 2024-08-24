@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Header from '../src/components/Header';
+import TaskList from '../src/components/TaskList';
+import TaskForm from '../src/components/TaskForm';
 import './App.css';
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [tasks, setTasks] = useState([]);
+
+  const handleThemeToggle = (darkMode) => {
+    setIsDarkMode(darkMode);
+    document.body.className = darkMode ? 'dark-mode' : '';
+  };
+
+  const addTask = (task) => {
+    setTasks([...tasks, task]);
+  };
+
+  const deleteTask = (index) => {
+    setTasks(tasks.filter((_, i) => i !== index));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header toggleTheme={handleThemeToggle} />
+      <TaskForm addTask={addTask} />
+      <TaskList tasks={tasks} deleteTask={deleteTask} />
     </div>
   );
 }

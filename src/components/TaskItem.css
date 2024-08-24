@@ -1,0 +1,63 @@
+.task-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-background);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 300px; /* Adjust width as needed */
+  margin: 10px;
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+.task-card h3 {
+  margin: 0 0 10px 0;
+}
+
+.task-card p {
+  margin: 5px 0;
+}
+
+.priority {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+  width: 80px; /* Set a fixed width for consistency */
+  height: 30px; /* Set a fixed height for consistency */
+  font-size: 14px; /* Set a consistent font size */
+}
+
+.priority.high {
+  background-color: var(--priority-high);
+}
+
+.priority.medium {
+  background-color: var(--priority-medium);
+}
+
+.priority.low {
+  background-color: var(--priority-low);
+}
+
+.delete-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--delete-button);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 80px; /* Set a fixed width for consistency */
+  height: 30px; /* Set a fixed height for consistency */
+  font-size: 14px; /* Set a consistent font size */
+}
+
+.delete-button:hover {
+  background-color: var(--delete-button-hover);
+}
